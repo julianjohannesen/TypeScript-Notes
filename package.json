@@ -1,0 +1,23 @@
+{
+  "name": "notes-on-codecademy-ts",
+  "version": "1.0.0",
+  "description": "Some notes while going through Codecademy's TypeScript course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianjohannesen/notes-on-codecademy-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianjohannesen/notes-on-codecademy-ts/issues"
+  },
+  "homepage": "https://github.com/julianjohannesen/notes-on-codecademy-ts#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

@@ -22,20 +22,17 @@ The tsconfig.json file is always placed in the root of your project and you can 
 
 In the JSON, there are several properties:
 
-|Term|Definition
-------|----------
-"compilerOptions" | which is a nested object that contains the rules for the TypeScript compiler to enforce.
-"target" | the value "es2017" means the project will be using the 2017 version of EcmaScript standards for JavaScript.
-"module" | this project will be using "commonjs" syntax to import and export modules.
-"strictNullChecks" | variables can only have null or undefined values if they are explicitly assigned those values.
-"include" | that determines what files the compiler applies the rules to. In this case ["**/*.ts"] means the compiler should check every single file that has a .ts extension.
+Term|Definition
+----|----------
+"compilerOptions" | Nested object that contains the rules for the TypeScript compiler to enforce.
+"target" | Value "es2017" means the project will be using the 2017 version of EcmaScript standards for JavaScript.
+"module" | Use "commonjs" syntax to import and export modules.
+"strictNullChecks" | Variables can only have null or undefined values if they are explicitly assigned those values.
+"include" | What files the compiler applies the rules to. In this case ["**/*.ts"] means the compiler should check every single file that has a .ts extension.
 
 We chose these rules because we wanted to give you an idea of what rules to enforce and still allow your creativity to shine. For your own projects, you can set these rules to your own preferences! The tsconfig.json file is great for both individual work and team projects because it allows everyone to be on the same page about how to write their code.
 
 Usage
 Another neat addition is that by including a tsconfig.json file, you can now use the command tsc without any arguments in your terminal! The compiler will automatically recognize from your tsconfig.json file, what specific files to run on. You can still provide specific files like tsc fileName.ts if that’s the only file you want the compiler to check.
 
-Wrap up
-Check out TypeScript’s compiler option documentation for even more information.
-
-Happy Coding! And remember, when in doubt, type it out!
+[TypeScript’s compiler option documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for even more information.
