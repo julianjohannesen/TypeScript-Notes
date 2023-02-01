@@ -6,9 +6,10 @@ TypeScript features are extremely useful: for one, it allows us to add types to 
 
 Sometimes, you don’t want all the default rules that TypeScript is trying to enforce — and that’s fine. That’s one reason why providing a tsconfig.json file is useful. Additionally, you get perks like telling the TypeScript compiler what files to run on and more! So, let’s explore what this file looks like and how it helps.
 
-Sample tsconfig.json and Breakdown
+## Sample tsconfig.json and Breakdown
 The tsconfig.json file is always placed in the root of your project and you can customize what rules you want the TypeScript compiler to enforce. Here’s the tsconfig.json file we provide in every single exercise and project in our Learn TypeScript course:
 
+```ts
 {
   "compilerOptions": {
     "target": "es2017",
@@ -17,13 +18,18 @@ The tsconfig.json file is always placed in the root of your project and you can 
   },
   "include": ["**/*.ts"]
 }
+```
+
 In the JSON, there are several properties:
 
-"compilerOptions", which is a nested object that contains the rules for the TypeScript compiler to enforce.
-"target", the value "es2017" means the project will be using the 2017 version of EcmaScript standards for JavaScript.
-"module", this project will be using "commonjs" syntax to import and export modules.
-"strictNullChecks", variables can only have null or undefined values if they are explicitly assigned those values.
-"include" that determines what files the compiler applies the rules to. In this case ["**/*.ts"] means the compiler should check every single file that has a .ts extension.
+|Term|Definition
+------|----------
+"compilerOptions" | which is a nested object that contains the rules for the TypeScript compiler to enforce.
+"target" | the value "es2017" means the project will be using the 2017 version of EcmaScript standards for JavaScript.
+"module" | this project will be using "commonjs" syntax to import and export modules.
+"strictNullChecks" | variables can only have null or undefined values if they are explicitly assigned those values.
+"include" | that determines what files the compiler applies the rules to. In this case ["**/*.ts"] means the compiler should check every single file that has a .ts extension.
+
 We chose these rules because we wanted to give you an idea of what rules to enforce and still allow your creativity to shine. For your own projects, you can set these rules to your own preferences! The tsconfig.json file is great for both individual work and team projects because it allows everyone to be on the same page about how to write their code.
 
 Usage
