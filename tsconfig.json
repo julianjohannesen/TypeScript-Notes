@@ -1,8 +1,19 @@
 {
     "compilerOptions": {
-      "target": "es2017",
+      /* Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files. This flag can be used as a way to incrementally add TypeScript files into JS projects by allowing the .ts and .tsx files to live along-side existing JavaScript files.*/
+      "allowJs": true,
+      // Show TS errors in JS files
+      "checkJs": true,
+      // Transpiled file destination
+      "outDir": "build",
+      // Which version of JS to transpile to
+      "target": "esnext",
+      // Which module syntax to use
       "module": "commonjs",
-      "strictNullChecks": true
+      /* Variables can only have null or undefined values if they're explicitly assigned those values. */
+      "strictNullChecks": true,
+      /* If typescript passes to babel, e.g., set this to true rather than emitting a file. */
+      "noEmit": false
     },
     "include": ["**/*.ts"]
   }

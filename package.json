@@ -19,5 +19,8 @@
   "homepage": "https://github.com/julianjohannesen/notes-on-codecademy-ts#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "jquery": "^3.6.3"
   }
 }
