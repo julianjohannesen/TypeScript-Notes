@@ -15,5 +15,6 @@
       /* If typescript passes to babel, e.g., set this to true rather than emitting a file. */
       "noEmit": false
     },
-    "include": ["**/*.ts"]
-  }
+    // Attempt to compile both ts and js files
+    "include": ["**/*.*s"]
+}
