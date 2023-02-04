@@ -1,17 +1,9 @@
 ## Types
 
-### From JS to TS
-### What is TS?
-
-TypeScript code is a superset of JavaScript code—it has all the features of traditional JavaScript but adds some new features.
-
-- TypeScript files have the extension .ts.
-- TS files are run through the TypeScript transpiler. The transpiler will check that the code adheres to TypeScript’s standards, and it will display errors when it does not.
-- If the TypeScript code can be converted into working JavaScript, the transpiler will output a JavaScript version of the file (.js).
-
 ### Type Inferences
 
-With TypeScript, when we declare a variable with an initial value, the variable can never be reassigned a value of a different data type. This is an example of **type inference**: everywhere in our program, TypeScript expects the data type of the variable to match the type of the value initially assigned to it at declaration. Attempting to change a variable's type will result in an error.
+TS does not allow you to change the type of a variable once that variable is assigned a value. If you declare a variable and an assign it a value, TS will **infer** that the variable has the given data type.  For example, let x = 5; will result in TS inferring that x is type number. Attempting to change a variable's type will result in an error. 
+
 
 ### Type Shapes
 
@@ -47,4 +39,17 @@ mustBeAString = 1337;
 // Error: Type 'number' is not assignable to type 'string'
 ```
 
-### Review
+### Intefaces
+TS allows you to create **interfaces** that tell TS about a custom type you've created. 
+
+```ts
+intefact Contact {
+    id: number;
+    name: String;
+    birthdate: Date;
+}
+```
+
+The syntax is very close to JS class syntax, however, each line ends in a semicolon rather than a comma.
+
+Intefaces are only used at transpile time and never appear in your runtime code. 
