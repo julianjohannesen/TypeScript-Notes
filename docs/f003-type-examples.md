@@ -3,10 +3,10 @@
 ### Numbers
 
 ```ts
-let first:number = 123; // number 
-let second: number = 0x37CF;  // hexadecimal
-let third:number=0o377 ;      // octal
-let fourth: number = 0b111001;// binary  
+let first:number = 123;         // number 
+let second: number = 0x37CF;    // hexadecimal
+let third:number = 0o377;       // octal
+let fourth: number = 0b111001;  // binary  
 
 console.log(first);  // 123 
 console.log(second); // 14287
@@ -43,12 +43,17 @@ Always use lower "boolean."
 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
 
 ```ts
+// An array of strings
 let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 ```
 
 2. Using a generic array type, Array<elementType>.
 
 ```ts
+// An array of strings
 let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
 ```
 
+### Object
+
+### Function
