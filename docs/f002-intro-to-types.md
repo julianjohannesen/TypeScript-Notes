@@ -55,3 +55,40 @@ mustBeAString = 1337;
 ```
 
 See [File 3](./f003-type-examples.md) for some examples of type annotations.
+
+### Type Aliases
+
+A type alias allows you to give a different name to a type, so that your interfaces, etc. can be more descriptive.
+
+```ts
+type ContactName = string;
+```
+
+### enums
+
+You can provide a list of acceptable values for a type with an enum.
+
+```ts
+enum ContactStatus {
+    Active,
+    Inactive,
+    New
+}
+```
+
+If you refer to an enum like this, it will give you a 0-indexed number value when you hover over it in your code. However, you can also add values when you define the enum, e.g.
+
+```ts
+enum ContactStatus {
+    Active = 'active',
+    Inactvie = 'inactive',
+    New = 'new'
+}
+
+let primaryContact: Contact = {
+    //...
+    status: ContactStatus.Active
+}
+```
+
+Hovering over 'ContactStatus.Active' will show the value 'active.'
