@@ -2,7 +2,17 @@
 
 ### Type Inferences
 
-TS does not allow you to change the type of a variable once that variable is assigned a value. If you declare a variable and an assign it a value, TS will **infer** that the variable has the given data type.  For example, let x = 5; will result in TS inferring that x is type number. Attempting to change a variable's type will result in an error. 
+TS does not allow you to change the type of a variable once that variable is assigned a value. 
+
+If you declare a variable and an assign it a value using ordinary JS in a TS file, TS will **infer** that the variable has the given data type.  For example, 
+
+```js
+let x = 5; 
+```
+
+...will result in TS inferring that x is type number. Attempting to change a variable's type will result in an error.
+
+### Type Annotation
 
 
 ### Type Shapes
@@ -19,7 +29,7 @@ TypeScript’s tsc command will let you know if your code tries to access proper
 
 ### Any
 
-There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.
+There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type **any**.
 
 Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on.
 
