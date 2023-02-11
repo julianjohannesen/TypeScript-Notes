@@ -70,3 +70,8 @@ function getNextId(items) {
 }
 const newTodo = addTodoItem("Buy lots of stuff with all the money we make from the app");
 console.log(JSON.stringify(newTodo));
+// The app transpiles without errors and correctly returns the new Todo object when you run node f004-example-ts-conversion.js. However, you can further generalize the getNextId() function with a generic like this:
+function getNextId2(items) {
+    return items.reduce((max, x) => (x.id > max) ? max : x.id, 0) + 1;
+}
+// <T extends {id:number} > is an example of a generic that constrains the possible arguments for getNextId2 to arrays of items that are objects with an id property and with the id being of type 'number.'

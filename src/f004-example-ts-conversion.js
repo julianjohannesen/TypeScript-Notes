@@ -1,9 +1,11 @@
 // The JS version
+
 // const todoItems = [
 //     { id: 1, title: "Learn HTML", status: "done", completedOn: new Date("2021-09-11") },
 //     { id: 2, title: "Learn TypeScript", status: "in-progress" },
 //     { id: 3, title: "Write the best app in the world", status: "todo" },
 // ]
+
 // Second create an enum for TodoStatus
 var TodoStatus;
 (function (TodoStatus) {
@@ -11,6 +13,7 @@ var TodoStatus;
     TodoStatus["InProgress"] = "in-progress";
     TodoStatus["Done"] = "done";
 })(TodoStatus || (TodoStatus = {}));
+
 // Third, create a Todo[] array, meaning that this is an array containing Todo typed items
 var todoItems = [
     {

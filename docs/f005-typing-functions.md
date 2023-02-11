@@ -28,7 +28,7 @@ function clone(source: Contact): Contact {
 
 Now the returned object will have type Contact.
 
-Imagine that clone() took a function and you wanted to provide type information for that function. You could do it like this:
+Imagine that clone() took a function and you wanted to provide type information for that function. You could do that like this:
 
 ```ts
 function clone(
@@ -50,5 +50,16 @@ Interface Contact {
     name: string;
     // Function 'clone' takes a Contact and returns a Contact
     clone(source: Contact): Contact;
+}
+```
+
+A function that takes no parameters would look like this:
+
+```ts
+Interface Contact {
+    id: number;
+    name: string;
+    // Function 'clone' takes no parameters and returns a Contact
+    clone(): Contact;
 }
 ```
