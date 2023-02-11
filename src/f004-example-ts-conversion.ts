@@ -63,18 +63,21 @@ function addTodoItem(todo: string): Todo {
     const newTodo = {
         id,
         title: todo,
+        // Use the enum here.
         status: TodoStatus.Todo
     }
     todoItems.push(newTodo);
     return newTodo;
 }
 
-// The JS version 
+// The JS version of the getNextId() function
 // function getNextId(items) {
+        // the reducer starts at 0 and the callback takes an accumulator called 'max' and a current value called 'x' and returns either the accumulator or the value of the current todo item's id property, depending on whether the value of the current todo item's id exceeds the accumulator value
 //     return items.reduce((max, x) => (x.id > max) ? max : x.id, 0) + 1
 // }
+
 // The TS version
-// getNestId takes an array of Todo items and returns a number
+// getNextId takes an array of Todo items and returns a number
 function getNextId(items: Todo[]): number {
     // Return currentItem.id, until currentItem.id becomes larger than the accumulator, and then return the accumulator
     return items.reduce( 
@@ -99,4 +102,4 @@ function getNextId2<T extends { id:number }>(items: T[]): number{
     return items.reduce((max, x) => (x.id > max) ? max : x.id, 0) + 1;
 }
 
-// <T extends {id:number} > is an example of a generic that constrains the possible arguments for getNextId2 to arrays of items that are objects with an id property and with the id being of type 'number.'
+// <T extends {id:number} > is an example of a generic that constrains the possible arguments for getNextId2 to arrays of items that are objects with an id property and with the id being of type 'number.' If you attempt to use a generic without supplying the 'extends {id:number}' information, you'll get a TS error, because TS requires that you supply that additional info about 'id'
