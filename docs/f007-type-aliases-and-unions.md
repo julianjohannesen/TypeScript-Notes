@@ -1,0 +1,112 @@
+## Types Aliases and Unions
+
+Three ways to use type aliases.
+
+### Alternative to inline union types
+
+Imagine that you have a Contact interface with birthdate field. The birthdate field currently takes a Date type, but you'd like to allow it to take a string or a number as well. You can use a type **union** to do that.
+
+```ts
+interface Contact {
+    ...
+    birthdate?: Date | number | string;
+    ...
+}
+```
+
+You could then create a getBirthdate() function that handles each of these possible data types, e.g. using typeof to detect the type of an argument and then returning a Date type object. 
+
+```ts
+function getBirthDate(contact: Contact) {
+    if (typeof contact.birthDate === "number") {
+        return new Date(contact.birthDate);
+    }
+    else if (typeof contact.birthDate === "string") {
+        return Date.parse(contact.birthDate)
+    }
+    else {
+        return contact.birthDate
+    }
+}
+```
+
+Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call Date(contact.birthDate) only after establishing that typeof contact.birthDate is "number". 
+
+Here's another example of this principal from the TS official documentation. This first function won't compile, and will raise an error, but the second one will compile.
+
+```ts
+function printId(id: number | string) {
+    console.log(id.toUpperCase());
+    //-> This is the TS error below:
+    //Property 'toUpperCase' does not exist on type 'string | number'.
+    //Property 'toUpperCase' does not exist on type 'number'.
+}
+```
+
+```ts
+function printId(id: number | string) {
+  if (typeof id === "string") {
+    // In this branch, id is of type 'string', and because TS knows this, it can infer that there's no problem calling toUpperCase() on id. 
+    console.log(id.toUpperCase());
+  } else {
+    // Here, TS can infer that id can only be of type number, because a string would get captured by the conditional above. So, we can call Math.round()
+    console.log(Math.round(id));
+  }
+}
+```
+
+Now back to type aliases. You can extract the type union for birthDate to a type alias.
+
+```ts
+type ContactBirthDate = Date | number | string;
+
+interface Contact {
+    ...
+    birthDate?: ContactBirthdate;
+    ...
+}
+```
+
+### Alternative to extending interfaces
+
+Remember that you can extend interfaces just like you can extend classes. If you wanted to create an addressable contact, you could create an AddressableContact interface like this:
+
+```ts
+interface AddressableContact extends Contact, Address {}
+```
+
+This is something new. We're extending both Contact AND Address to create a new interface that can contain any of the fields in either the Contact interface or the Address interface.
+
+The reason that Jess brings this up in lesson 3 part 1 is because you do this a different way, using a type alias.
+
+```ts
+type AddressableContact = Contact & Address;
+```
+
+### Alternative to enum
+
+There's one more way to use a type alias - as an alternative to the enum type. 
+
+Consider this:
+
+```ts
+enum ContactStatus {
+    Active = "active",
+    Inactive = "inactive",
+    New = "new"
+}
+
+interface Contact {
+    ...
+    status: ContactStatus;
+}
+```
+
+An alterative to this syntax is to use a type alias like this:
+
+```ts
+type ContactStatus = "active" | "inactive" | "new"
+```
+
+What's cool about that is that when you add the status field, TS will detect what you're doing an automatically provide a dropdown menu showing you the active, inactive, and new options.
+

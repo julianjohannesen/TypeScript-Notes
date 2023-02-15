@@ -51,3 +51,37 @@ getInstances();
 }
 
 console.log(solution(4600))
+
+function printId(id: number | string) {
+  if (typeof id === "string") {
+    // In this branch, id is of type 'string', and because TS knows this, it can infer that there's no problem calling toUpperCase() on id. 
+    console.log(id.toUpperCase());
+  } else {
+    // Here, TS can infer that id can only be of type number, because a string would get captured by the conditional above. So, we can call Math.round()
+    console.log(Math.round(id));
+  }
+}
+
+console.log(printId(3.2459));
+
+//Adding new fields to an existing interface
+
+interface bloop {greeting: string}
+interface bloop {numero: number}
+interface bloop {greet: (greeting, numero) => void}
+
+const blooper: bloop = {
+  greeting: "Hello", 
+  numero: 5, 
+  greet: (greeting, numero)=>console.log(greeting + " number " + numero)
+}
+
+blooper.greet(blooper.greeting, blooper.numero);
+        
+//A type cannot be changed after being created
+
+type Schmoop = {greeting: string}
+type Schmoop = {numero: number}
+
+ // Error: Duplicate identifier 'Schmoop'.
+

@@ -34,8 +34,27 @@ function solution(number) {
             result.push(sizeHash[x]);
         }
     }
+    // I need to figure out how to process the array of roman numerals to change things like IIII into IV
     console.log('The tracker value is: ' + tracker);
     console.log('The joined result is: ', result.join(''));
     return result.join('');
 }
 console.log(solution(4600));
+function printId(id) {
+    if (typeof id === "string") {
+        // In this branch, id is of type 'string', and because TS knows this, it can infer that there's no problem calling toUpperCase() on id. 
+        console.log(id.toUpperCase());
+    }
+    else {
+        // Here, TS can infer that id can only be of type number, because a string would get captured by the conditional above. So, we can call Math.round()
+        console.log(Math.round(id));
+    }
+}
+console.log(printId(3.2459));
+var blooper = {
+    greeting: "Hello",
+    numero: 5,
+    greet: function (greeting, numero) { return console.log(greeting + " number " + numero); }
+};
+blooper.greet(blooper.greeting, blooper.numero);
+// Error: Duplicate identifier 'Schmoop'.

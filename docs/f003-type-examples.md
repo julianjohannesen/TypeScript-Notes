@@ -54,6 +54,6 @@ let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
 ```
 
-### Object
+### Objects
 
 ### Function

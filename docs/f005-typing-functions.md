@@ -26,7 +26,7 @@ function clone(source: Contact): Contact {
 }
 ```
 
-Now the returned object will have type Contact.
+Now Ts will raise an error if the returned object does not have type Contact.
 
 Imagine that clone() took a function and you wanted to provide type information for that function. You could do that like this:
 
@@ -40,7 +40,7 @@ function clone(
 }
 ```
 
-The new syntax look like a function signature. It's succinctly showing the type of the parameter that the function myFunction takes and also showing the type of the object returned by myFunction.
+The new syntax looks like a function signature. It's succinctly showing the type of the parameter that the function myFunction takes and also showing the type of the object returned by myFunction.
 
 You can also add methods to an Interface like this:
 
