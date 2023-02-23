@@ -1,6 +1,6 @@
-## Type Examples
+# Type Examples
 
-### Numbers
+## Numbers
 
 ```ts
 let first:number = 123;         // number 
@@ -14,7 +14,7 @@ console.log(third);  // 255
 console.log(fourth); // 57 
 ```
 
-### Strings
+## Strings
 
 ```ts
 let employeeName:string = "John Smith"; 
@@ -30,7 +30,7 @@ console.log(employeeDesc1);//John Smith works in the Finance department.
 console.log(employeeDesc2);//John Smith works in the Finance department. 
 ```
 
-### Boolean
+## Boolean
 
 ```ts
 let isPresent:boolean = true;
@@ -38,7 +38,7 @@ let isPresent:boolean = true;
 
 Always use lower "boolean."
 
-### Array
+## Array
 
 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
 
@@ -54,6 +54,6 @@ let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
 ```
 
-### Objects
+## Objects
 
-### Function
+## Function

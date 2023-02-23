@@ -1,6 +1,6 @@
-## Generics
+# Generics
 
-### Why do we need generics?
+## Why do we need generics?
 
 From the documentation here: https://www.typescriptlang.org/docs/handbook/2/generics.html
 
@@ -34,7 +34,7 @@ function identity<Type>(arg: Type): Type {
 }
 ```
 
-### Two Ways to Call a Generic Function
+## Two Ways to Call a Generic Function
 
 There are 2 ways to call a generic function: explicitly or using type inference.
 
@@ -47,7 +47,7 @@ let output = identity("myString");
 
 It's preferable to allow TS to infer the type, but it's not always possible to do that in more complicated code.
 
-### Working with Generic Type Variables
+## Working with Generic Type Variables
 
 When you begin to use generics, you’ll notice that when you create generic functions like identity, **the compiler will enforce that you use any generically typed parameters in the body of the function correctly**.
 
@@ -82,7 +82,7 @@ function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
 }
 ```
 
-### Typing Functions with Type Variables
+## Typing Functions with Type Variables
 
 The type of generic functions is just like those of non-generic functions, with the type parameters listed first, similarly to function declarations:
 
@@ -109,7 +109,7 @@ let myIdentity: <Input>(arg: Input) => Input = identity;
 
 
 
-### My earlier notes on generics
+## My earlier notes on generics
 Generic types allow you to define a function such that the input and output will have the same type without specifying what that type is. For example,
 
 ```ts

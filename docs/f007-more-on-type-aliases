@@ -1,8 +1,8 @@
-## Types Aliases and Unions
+# More on Types Aliases
 
 Three ways to use type aliases.
 
-### Alternative to inline union types
+## 1. Alternative to inline union types
 
 Imagine that you have a Contact interface with birthdate field. The birthdate field currently takes a Date type, but you'd like to allow it to take a string or a number as well. You can use a type **union** to do that.
 
@@ -67,7 +67,7 @@ interface Contact {
 }
 ```
 
-### Alternative to extending interfaces
+## 2. Alternative to extending interfaces
 
 Remember that you can extend interfaces just like you can extend classes. If you wanted to create an addressable contact, you could create an AddressableContact interface like this:
 
@@ -83,7 +83,7 @@ The reason that Jess brings this up in lesson 3 part 1 is because you do this a 
 type AddressableContact = Contact & Address;
 ```
 
-### Alternative to enum
+## 3. Alternative to enum
 
 There's one more way to use a type alias - as an alternative to the enum type. 
 

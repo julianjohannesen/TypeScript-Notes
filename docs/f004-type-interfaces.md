@@ -1,4 +1,4 @@
-## Interfaces
+# Interfaces
 
 TS allows you to create custom types using the **interface** keyword.
 
@@ -64,7 +64,7 @@ function printName(obj: { first: string; last?: string }) {
 }
 ```
 
-### Type Interfaces and Type Aliases
+## Type Interfaces and Type Aliases
 
 Type interfaces and type aliases are very similar. They can both be extended in a way. You can extend an interface using the 'extends' keyword, in the same way you might extend a class. You can also extend a type alias using an intersection of type aliases. However, type aliases are more limited in their functionality. This is from the TS Handbook:
 

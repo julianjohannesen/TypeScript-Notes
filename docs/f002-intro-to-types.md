@@ -1,6 +1,6 @@
-## Types
+# Types
 
-### Type **Inferences**
+## Type **Inferences**
 
 TS does not allow you to change the type of a variable once that variable is assigned a value. 
 
@@ -12,7 +12,7 @@ let x = 5;
 
 ...will result in TS inferring that x is type number. Attempting to change a variable's type will result in an error.
 
-### Type **Shapes**
+## Type **Shapes**
 
 An object’s shape describes, among other things, what properties and methods it does or doesn’t contain.
 
@@ -24,7 +24,7 @@ TypeScript’s tsc command will let you know if your code tries to access proper
 // Did you mean 'toLowerCase'?
 ```
 
-### Type **Any**
+## Type **Any**
 
 What happens when a variable is declared without being assigned an initial value? In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type **any**. For example,
 
@@ -38,7 +38,7 @@ x = 47;
 
 Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on.
 
-### Type Annotation
+## Type Annotation
 
 In some situations, we’d like to declare a variable without an initial value while still ensuring that it will only ever be assigned values of a certain type. If left as any, TypeScript won’t be able to protect us from accidentally assigning a variable to an incorrect type that could break our code.
 
@@ -56,7 +56,7 @@ mustBeAString = 1337;
 
 See [File 3](./f003-type-examples.md) for some examples of type annotations.
 
-### Type Aliases
+## Type Aliases
 
 A type alias allows you to give a different name to a type, so that your interfaces, etc. can be more descriptive.
 
@@ -64,7 +64,7 @@ A type alias allows you to give a different name to a type, so that your interfa
 type ContactName = string;
 ```
 
-### enums
+## enums
 
 You can provide a list of acceptable values for a type with an enum.
 
