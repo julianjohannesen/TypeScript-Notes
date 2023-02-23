@@ -7,6 +7,7 @@ TypeScript features are extremely useful: for one, it allows us to add types to 
 Sometimes, you don’t want all the default rules that TypeScript is trying to enforce — and that’s fine. That’s one reason why providing a tsconfig.json file is useful. Additionally, you get perks like telling the TypeScript compiler what files to run on and more! So, let’s explore what this file looks like and how it helps.
 
 ## Sample tsconfig.json and Breakdown
+
 The tsconfig.json file is always placed in the root of your project and you can customize what rules you want the TypeScript compiler to enforce. Here’s the tsconfig.json file we provide in every single exercise and project in our Learn TypeScript course:
 
 ```ts
@@ -32,7 +33,8 @@ Term|Definition
 
 We chose these rules because we wanted to give you an idea of what rules to enforce and still allow your creativity to shine. For your own projects, you can set these rules to your own preferences! The tsconfig.json file is great for both individual work and team projects because it allows everyone to be on the same page about how to write their code.
 
-Usage
+### Usage
+
 Another neat addition is that by including a tsconfig.json file, you can now use the command tsc without any arguments in your terminal! The compiler will automatically recognize from your tsconfig.json file, what specific files to run on. You can still provide specific files like tsc fileName.ts if that’s the only file you want the compiler to check.
 
 [TypeScript’s compiler option documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for even more information.

@@ -1,4 +1,4 @@
-## Typing Functions
+# Typing Functions
 
 Functions can also be typed. Consider this:
 
@@ -16,9 +16,9 @@ function clone(source: Contact) {
 }
 ```
 
-Now the function will only take Contacts as arguments. 
+Now the function will only take Contacts as arguments.
 
-But there's a problem, because Object.apply() returns type Any, which means that TS will infer that clone() returns type Any rather than type Contact. Here's how you fix that:
+But there's a problem, because Object.apply() returns type **Any**, which means that TS will infer that clone() returns type Any rather than type Contact. Here's how you fix that:
 
 ```ts
 function clone(source: Contact): Contact {
@@ -35,12 +35,15 @@ function clone(
     source: Contact,
     // A type signature for the function 'myFunction' 
     myFunction: (source:Contact) => Contact
+    // The type that clone() should return
     ): Contact {
         return Object.apply({}, source)
 }
 ```
 
 The new syntax looks like a function signature. It's succinctly showing the type of the parameter that the function myFunction takes and also showing the type of the object returned by myFunction.
+
+## Adding Methods to Interfaces
 
 You can also add methods to an Interface like this:
 

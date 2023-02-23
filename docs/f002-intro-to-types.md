@@ -2,7 +2,7 @@
 
 ## Type **Inferences**
 
-TS does not allow you to change the type of a variable once that variable is assigned a value. 
+TS does not allow you to change the type of a variable once that variable is assigned a value.
 
 If you declare a variable and an assign it a value using ordinary JS in a TS file, TS will **infer** that the variable has the given data type.  For example, 
 

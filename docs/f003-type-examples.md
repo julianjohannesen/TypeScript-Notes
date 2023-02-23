@@ -1,5 +1,7 @@
 # Type Examples
 
+Keep in mind that you wouldn't actually type annotate most of these examples in practice, because TypeScript can infer their the correct type without any help.
+
 ## Numbers
 
 ```ts
@@ -53,7 +55,3 @@ let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 // An array of strings
 let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
 ```
-
-## Objects
-
-## Function

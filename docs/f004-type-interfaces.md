@@ -19,6 +19,32 @@ The syntax is very close to JS class syntax, however, each line ends in an optio
 
 Notice the question mark at the end of 'birthdate?'. That question mark indicates that the field is optional. Because it's an optional field, the TS compiler will not raise an error if you leave this field out when you define primaryContact.
 
+## Adding Methods to Interfaces
+
+You can also add methods to an Interface like this:
+
+```ts
+Interface Contact {
+    id: number;
+    name: string;
+    // Function 'clone' takes a Contact and returns a Contact
+    clone(source: Contact): Contact;
+}
+```
+
+A function that takes no parameters would look like this:
+
+```ts
+Interface Contact {
+    id: number;
+    name: string;
+    // Function 'clone' takes no parameters and returns a Contact
+    clone(): Contact;
+}
+```
+
+## Extending Interfaces
+
 Multiple interfaces can be combined to create a new interface. For example, we could add an Address interface to Contact to include address fields.
 
 ```ts
@@ -46,7 +72,9 @@ let primaryContact: Contact = {
 
 But can you create, for example, custom types for state and postal code that match a particular regexp pattern?
 
-There's a lot more to interfaces and to typing objects in general. For example, in the TS official documentation, during the discussion of ["Everyday Types"](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html), which is early on in the Handbook, it's mentioned that in JavaScript, if you access a property that doesn’t exist, you’ll get the value **undefined** rather than a runtime error. Because of this, when you read from an optional property, you’ll have to check for undefined before using it. This comes up because, when you pass an object to a function as a parameter, and that object has optional properties, you may end up in this situation. 
+## Checking Optional Properties
+
+There's a lot more to interfaces and to typing objects in general. For example, in the TS official documentation, during the discussion of ["Everyday Types"](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html), which is early on in the Handbook, it's mentioned that in JavaScript, if you access a property that doesn’t exist, you’ll get the value **undefined** rather than a runtime error. Because of this, when you read from an optional property, you’ll have to check for undefined before using it. This comes up because, when you pass an object to a function as a parameter, and that object has optional properties, you may end up in this situation.
 
 ```js
 // We give types to the object parameter and to the properties in that object
@@ -112,4 +140,3 @@ type Schmoop = {numero: number}
 
  // Error: Duplicate identifier 'Schmoop'.
  ```
-
