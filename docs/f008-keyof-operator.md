@@ -18,7 +18,7 @@ function getValue(sourceObject, propertyName) {
 }
 ```
 
-And now imagine that you want to get the status value of from a Contact type object.
+And now imagine that you want to get the value located at someContact["status"] where someContact has type Contact.
 
 ```ts
 const value = getValue(myContact, "sttaus")
@@ -29,6 +29,7 @@ Without any typing information, this spelling mistake could easily slip by and c
 Now consider:
 
 ```ts
+// When defining getValue we specify that propertyName has type keyof Contact
 function getValue(sourceObject, propertyName: keyof Contact) {
     return sourceObject[propertyName];
 }

@@ -36,7 +36,7 @@ function identity<Type>(arg: Type): Type {
 
 ## Two Ways to Call a Generic Function
 
-There are 2 ways to call a generic function: explicitly or using type inference.
+There are 2 ways to call a generic function: (1) explicitly or (2) using type inference.
 
 ```js
 // Explicitly type the argument with a type annotation
@@ -51,17 +51,16 @@ It's preferable to allow TS to infer the type, but it's not always possible to d
 
 When you begin to use generics, you’ll notice that when you create generic functions like identity, **the compiler will enforce that you use any generically typed parameters in the body of the function correctly**.
 
-Consider the following function. 
+Consider the following function.
 
 ```js
 function loggingIdentity<Type>(arg: Type): Type {
   console.log(arg.length);
-  //-> ERROR: Property 'length' does not exist on type 'Type'.
-  return arg;
+  return arg; //-> ERROR: Property 'length' does not exist on type 'Type'.
 }
 ```
 
-Our generic Type has no length method or property. 
+Our generic Type has no length method or property.
 
 But we can do this:
 
@@ -94,22 +93,23 @@ function identity<Type>(arg: Type): Type {
 // This really confused me when I first looked at it
 // The JS equivalent is let myIdentity = identity
 // Everything else is part of the type information
+
+// In practice, if TS knows identity's type, then we don't need the typing for myIdentity, right?
 let myIdentity: <MyTypeVariable> (arg: MyTypeVariable) => MyTypeVariable = identity;
 ```
 
 We could also have used a different name for the generic type parameter in the type, so long as the number of type variables and how the type variables are used line up.
 
 ```ts
-function identity<Type>(arg: Type): Type {
+function identity<T>(arg: T): T {
   return arg;
 }
  
 let myIdentity: <Input>(arg: Input) => Input = identity;
 ```
 
+## The Example from TypeScript Essential Training
 
-
-## My earlier notes on generics
 Generic types allow you to define a function such that the input and output will have the same type without specifying what that type is. For example,
 
 ```ts
@@ -132,7 +132,9 @@ When you do that, you have to specify the types when you call the function like 
 let b = clone<Contact, SomeOtherType>(a);
 ```
 
-You can also add generic constraints that will contrain the types of inputs or ouput in a generic type. For example, if you add the word 'extends T1' to T2 above, you require that T2 has to at least match T1 in terms of its properties and methods, although it can add additional properties and methods beyond that. Note that this doesn't mean that T2 has to literally extend the interface T1, it just has to match its signature in terms of properties and methods and their types.
+### Generic Constraints
+
+You can also add generic constraints that will constrain the types of inputs or output in a generic type. For example, **if you add the word 'extends T1' to T2 above, you require that T2 has to at least match T1 in terms of its properties and methods, although it can add additional properties and methods beyond that**. Note that this doesn't mean that T2 has to literally extend the interface T1, it just has to match its signature in terms of properties and methods and their types.
 
 ```ts
 function clone<T1, T2>(source: T1): T2 extends T1 {

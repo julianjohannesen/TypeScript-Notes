@@ -2,7 +2,7 @@
 
 Three ways to use type aliases.
 
-## 1. Alternative to inline union types
+## 1. Aa an alternative to inline union types
 
 Imagine that you have a Contact interface with birthdate field. The birthdate field currently takes a Date type, but you'd like to allow it to take a string or a number as well. You can use a type **union** to do that.
 
@@ -29,6 +29,8 @@ function getBirthDate(contact: Contact) {
     }
 }
 ```
+
+### An aside about narrowing type
 
 Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call Date(contact.birthDate) only after establishing that typeof contact.birthDate is "number". 
 
@@ -58,6 +60,7 @@ function printId(id: number | string) {
 Now back to type aliases. You can extract the type union for birthDate to a type alias.
 
 ```ts
+// Extract the inline type union to a type alias
 type ContactBirthDate = Date | number | string;
 
 interface Contact {
@@ -77,7 +80,7 @@ interface AddressableContact extends Contact, Address {}
 
 This is something new. We're extending both Contact AND Address to create a new interface that can contain any of the fields in either the Contact interface or the Address interface.
 
-The reason that Jess brings this up in lesson 3 part 1 is because you do this a different way, using a type alias.
+The reason that Jess brings this up in lesson 3 part 1 is because you can do this a different way, using a type alias.
 
 ```ts
 type AddressableContact = Contact & Address;
