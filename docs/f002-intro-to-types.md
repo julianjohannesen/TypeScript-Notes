@@ -92,3 +92,47 @@ let primaryContact: Contact = {
 ```
 
 Hovering over 'ContactStatus.Active' will show the value 'active.'
+
+## Objects
+
+The following is from Execute Program's course on TypeScript Basics.
+
+In JavaScript, myObject.someProperty will return undefined if someProperty doesn't exist. This has caused an uncountable number of errors in production applications. The most common symptom is the "undefined is not a function" error when we do myObject.someProperty().
+
+```ts
+// Notice that this is a type and not an interface
+type User = {
+    // Notice that there's no comma between email: string and admin: boolean
+    // You could use an optional semicolon
+    email: string
+    admin: boolean
+};
+let amir: User = {
+    // When you declare the actual variable, you use normal JS syntax, including the comma
+    email: 'amir@example.com',
+    admin: true,
+};
+amir.admin; //-> true
+```
+
+The object type syntax looks similar to the literal object syntax. However, we can't use expressions like 1 + 1 or true || false in a type. That would be a syntax error because **expressions are never allowed in types**.
+
+```ts
+// Don't use in expressions in TS types
+type User = {email: string, admin: true || false};
+//-> syntax error: on line 1: ';' expected.
+```
+
+Another example of the fact that in type declarations, we don't use commas between values.
+
+```ts
+type Reservation = {
+    user: {
+        email: string
+        admin: boolean
+    } // Notice that there's no comma here
+    roomNumber: number
+};
+```
+
+Notice that there's no comma between the two objects making up Reservation!

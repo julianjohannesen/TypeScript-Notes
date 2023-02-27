@@ -10,7 +10,7 @@ In languages like C# and Java, one of the main tools in the toolbox for creating
 
 Without generics, we would either have to give the identity function a specific type:
 
-```js
+```ts
 function identity(arg: number): number {
   return arg;
 }
@@ -18,7 +18,7 @@ function identity(arg: number): number {
 
 Or, we could describe the identity function using the any type:
 
-```js
+```ts
 function identity(arg: any): any {
   return arg;
 }
@@ -60,9 +60,7 @@ function loggingIdentity<Type>(arg: Type): Type {
 }
 ```
 
-Our generic Type has no length method or property.
-
-But we can do this:
+Our generic Type has no length method or property. But we can narrow the type of the generic to allow using the length property. I'm not sure 'narrowing' is the right term here, but I'm going with it.
 
 ```js
 // Now that we're dealing with arrays of things with type Type, we have access to the length property, because arrays have a length property.
@@ -89,12 +87,19 @@ The type of generic functions is just like those of non-generic functions, with 
 function identity<Type>(arg: Type): Type {
   return arg;
 }
+```
 
-// This really confused me when I first looked at it
-// The JS equivalent is let myIdentity = identity
-// Everything else is part of the type information
+This next bit really confused me when I first looked at it. The JS equivalent of line 103 is:
 
-// In practice, if TS knows identity's type, then we don't need the typing for myIdentity, right?
+```js
+let myIdentity = identity
+```
+
+Everything else is part of the type information.
+
+```ts
+// I think that, in practice, if TS knows identity's type, then we don't need the typing for myIdentity.
+// Here, we supply a sort of type signature for the function
 let myIdentity: <MyTypeVariable> (arg: MyTypeVariable) => MyTypeVariable = identity;
 ```
 
@@ -141,3 +146,17 @@ function clone<T1, T2>(source: T1): T2 extends T1 {
     return Object.apply({}, source);
 }
 ```
+
+### Additional Notes on Generic Functions from Execute Program
+
+We can define generic functions using the same <> syntax. When a function is generic, it has a "type hole", just like Array does. The hole must be filled by a type, just as number fills Array<number>.
+
+```ts
+function first<T>(elements: Array<T>): T {
+  return elements[0];
+}
+// In practice, we don't have to supply the <boolean> type, because TS can infer it from the arguments we supply
+first<boolean>([true, false]);
+```
+
+Type parameters should be UpperCamelCased This convention makes it easy for us to tell a User type from a user variable.

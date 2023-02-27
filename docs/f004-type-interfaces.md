@@ -106,7 +106,8 @@ const bear = getBear()
 bear.name
 bear.honey
         
-//Extending a type via intersections
+// Extending a type via a 'type intersection'
+// The syntax T1 & T2 means "an object with all of the properties from both T1 and T2."
 
 type Animal = {name: string}
 type Bear = Animal & {honey: boolean}

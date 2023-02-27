@@ -2,7 +2,7 @@
 
 Three ways to use type aliases.
 
-## 1. As an alternative to inline union types
+## 1. Type Aliases as an Alternative to Inline Type Unions
 
 Imagine that you have a Contact interface with birthdate field. The birthdate field currently takes a Date type, but you'd like to allow it to take a string or a number as well. You can use a type **union** to do that.
 
@@ -14,7 +14,7 @@ interface Contact {
 }
 ```
 
-You could then create a getBirthdate() function that handles each of these possible data types, e.g. using typeof to detect the type of an argument and then returning a Date type object. 
+You could then create a getBirthdate() function that handles each of these possible data types, e.g. using typeof to detect the type of an argument and then returning a Date type object.
 
 ```ts
 function getBirthDate(contact: Contact) {
@@ -30,7 +30,41 @@ function getBirthDate(contact: Contact) {
 }
 ```
 
-### An aside about narrowing type
+### More on Type Unions
+
+Here's some more information about Type Unions from [Execute Program](https://www.executeprogram.com/)'s course on TypeScript Basics.
+
+```ts
+// Notice the type union used to type the second parameter
+function concat(a1: number[], a2: number | number[]) {
+    // Wrap a2 in an array if it's not one already. 
+    let a2Array = Array.isArray(a2) ? a2 : [a2];
+    // Use the spread operator to concatenate the arrays
+    return [...a1, ...a2Array];
+}
+```
+
+Suppose that a drawer is labeled "forks". We have a handful of forks and knives. If we put the forks and knives in the drawer, we've violated the label. Likewise, when we put a Fork | Knife into a Fork variable, we've violated the type. It would allow some situations where the Fork variable ended up holding a Knife.
+
+What happens if we assign a string to a string | number? We can think about this by analogy to the physical world again. If a drawer is labeled "forks and knives", and we put a knife in, then we've satisfied the label. Likewise, when we put a Fork into a Fork | Knife variable, we've satisfied the types.
+
+```ts
+function getClevelandZipCode(): string | number {
+    return 44106;
+}
+// Sticking a number in the string|number drawer is allowed
+let zip: string | number = getClevelandZipCode();
+zip; //-> 44106
+```
+
+But now consider this:
+
+```ts
+// Putting a string|number in the number drawer is not allowed
+let zip: number = getClevelandZipCode(); //-> type error
+```
+
+### Note on Narrowing Type
 
 Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call
 
@@ -76,7 +110,7 @@ interface Contact {
 }
 ```
 
-## 2. Alternative to extending interfaces
+## 2. Type Aliases as an Alternative to Extending Interfaces
 
 Remember that you can extend interfaces just like you can extend classes. If you wanted to create an addressable contact, you could create an AddressableContact interface like this:
 
@@ -92,9 +126,9 @@ The reason that Jess brings this up in lesson 3 part 1 is because you can do thi
 type AddressableContact = Contact & Address;
 ```
 
-## 3. Alternative to enum
+## 3. Type Aliases as an Alternative to enums
 
-There's one more way to use a type alias - as an alternative to the enum type. 
+There's one more way to use a type alias - as an alternative to the enum type.
 
 Consider this:
 
@@ -118,4 +152,3 @@ type ContactStatus = "active" | "inactive" | "new"
 ```
 
 What's cool about that is that when you add the status field, TS will detect what you're doing an automatically provide a dropdown menu showing you the active, inactive, and new options.
-
