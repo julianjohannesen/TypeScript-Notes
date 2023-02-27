@@ -58,3 +58,7 @@ var blooper = {
 };
 blooper.greet(blooper.greeting, blooper.numero);
 // Error: Duplicate identifier 'Schmoop'.
+function first(elements) {
+    return elements[0];
+}
+console.log(first([true, false]));

@@ -77,11 +77,19 @@ const blooper: bloop = {
 }
 
 blooper.greet(blooper.greeting, blooper.numero);
-        
+
 //A type cannot be changed after being created
 
 type Schmoop = {greeting: string}
-type Schmoop = {numero: number}
+type Schmoop = {numero: number} //-> Error: Duplicate identifier 'Schmoop'.
 
- // Error: Duplicate identifier 'Schmoop'.
+function first<T>(elements: Array<T>): T {
+  return elements[0];
+}
 
+// You can insert the type here when you call the function, e.g.
+// first<boolean>([true, false])
+// However, it's not necessary. TS can infer the type from the arguments supplied 
+console.log(first([true, false]))
+
+type myName = {name: 'julian' + ' ' + 'johannesen'; age: 41 }
