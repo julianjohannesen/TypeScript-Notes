@@ -42,6 +42,8 @@ Always use lower "boolean."
 
 ## Array
 
+There are two ways to indicate the type "array" in TS:
+
 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
 
 ```ts
@@ -54,4 +56,17 @@ let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 ```ts
 // An array of strings
 let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
+```
+
+Note that you can also have arrays of arrays.
+
+```ts
+// string[][] indicates an array of one or more arrays of strings
+const arrayOfArraysOfStrings: (string[])[] = [['hello'], ['world']];
+```
+
+We added parentheses in that type to clarify that the things inside the array have the type string[]. But those parentheses aren't necessary and are rarely used in real-world TypeScript code.
+
+```ts
+const arrayOfArraysOfStrings: string[][] = [['hello'], ['world']];
 ```
