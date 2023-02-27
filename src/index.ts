@@ -92,4 +92,8 @@ function first<T>(elements: Array<T>): T {
 // However, it's not necessary. TS can infer the type from the arguments supplied 
 console.log(first([true, false]))
 
-type myName = {name: 'julian' + ' ' + 'johannesen'; age: 41 }
+// This example contains two errors
+// 1. You can't use arithmetic operators in types
+// 2. The comma is illegal. You need a semicolon or nothing
+type myName = {name: 'julian' + ' ' + 'johannesen', age: 41 }
+

@@ -2,7 +2,7 @@
 
 Three ways to use type aliases.
 
-## 1. Aa an alternative to inline union types
+## 1. As an alternative to inline union types
 
 Imagine that you have a Contact interface with birthdate field. The birthdate field currently takes a Date type, but you'd like to allow it to take a string or a number as well. You can use a type **union** to do that.
 
@@ -32,9 +32,15 @@ function getBirthDate(contact: Contact) {
 
 ### An aside about narrowing type
 
-Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call Date(contact.birthDate) only after establishing that typeof contact.birthDate is "number". 
+Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call
 
-Here's another example of this principal from the TS official documentation. This first function won't compile, and will raise an error, but the second one will compile.
+```js
+Date(contact.birthDate)
+```
+
+only after establishing that typeof contact.birthDate is "number".
+
+Here's another example of this principal from the TS official documentation. The first function below won't compile, and will raise an error, but the second one will compile.
 
 ```ts
 function printId(id: number | string) {
