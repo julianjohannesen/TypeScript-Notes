@@ -49,3 +49,15 @@ function userName({name}: {name: string}): string {
 }
 userName({name: 'Amir'}); //->'Amir'
 ```
+
+## Type Assignment with Literal Types
+
+Consider the following:
+
+```ts
+function aBoolean(): boolean { return true; }
+let t: true = aBoolean();
+t; //-> type error: Type 'boolean' is not assignable to type 'true'.
+```
+
+It's not possible to assign a wider type like **boolean** to a narrower type like the literal **true**. Consider this analogy. Take a drawer for forks and knives. It's perfectly fine to put either a fork or a knife in that drawer. Now consider a drawer for only forks. Putting a "fork | knife" in that drawer won't work, because a "fork | knife" might turn out to a knife.

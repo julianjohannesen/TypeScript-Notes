@@ -33,7 +33,7 @@ Imagine that clone() took a function and you wanted to provide type information 
 ```ts
 function clone(
     source: Contact,
-    // A type signature for the function 'myFunction' 
+    // A "type signature" for the function 'myFunction' 
     myFunction: (source:Contact) => Contact
     // The type that clone() should return
     ): Contact {
@@ -65,4 +65,35 @@ Interface Contact {
     // Function 'clone' takes no parameters and returns a Contact
     clone(): Contact;
 }
+```
+
+## Assigning a function to a variable
+
+You can create a function and then create a type for that function and assign a variable with that type to the function you created:
+
+```ts
+function five(): number {
+    return 5;
+}
+
+/* This is the type of the function itself. */
+type TakesNothingReturnsNumber = () => number;
+
+// Now let's assign it to a variable
+const myFive: TakesNothingReturnsNumber = five;
+myFive();
+```
+
+When defining a function with an explicit function type, we can only use the newer arrow function syntax:
+
+```ts
+// A variable with a type signature for a function. The signature requires that we use the arrow function syntax
+const numberToString: (s: number) => string = (
+    // This is the arrow function that we're assigning to `numberToString`.
+    (s) => {
+        return s.toString();
+    }
+);
+
+numberToString(5); //->'5'
 ```

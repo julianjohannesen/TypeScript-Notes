@@ -64,6 +64,16 @@ But now consider this:
 let zip: number = getClevelandZipCode(); //-> type error
 ```
 
+Something similar comes up in the discussion of type literals in the Execute Program course on TypeScript Basics. 
+
+```ts
+function aBoolean(): boolean { return true; }
+let t: true = aBoolean();
+t; //-> type error: Type 'boolean' is not assignable to type 'true'.
+```
+
+**boolean** is a wider type than the type literal **true**, so we can't assign the result of a function of type boolean to a variable that has type **true**.
+
 ### Note on Narrowing Type
 
 Note that you're required to "narrow the union" to provide enough information in getBirthdate() for TS to know whether a method can be called within the function, otherwise TS will raise an error. So, for example, above, we can call
